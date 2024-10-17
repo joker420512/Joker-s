@@ -1,0 +1,205 @@
+//MFU
+
+#include<stdio.h>
+
+struct node
+{
+int pno,freq;
+}frames[20];
+
+int n;
+
+int page_found(int pno)
+{
+	int fno;
+	for(fno=0;fno<n;fno++)
+	if(frames[fno].pno==pno)
+	return fno;
+	return -1;
+}
+
+int get_free_frame()
+{  
+	int fno;
+	for (fno=0; fno<=n; fno++)
+	if (frames[fno].pno==-1)
+	return(fno);
+	return(-1);
+}
+
+int get_mfu_frame()
+{
+	int fno;
+	int selfno=0;
+	for (fno=1; fno<n; fno++)
+	if(frames[fno].freq>frames[selfno].freq)
+	selfno=fno;
+	return selfno;
+}
+
+void main()
+{
+	int p_request[100];
+	int size;
+	int page_fault=0,i,j,fno;
+
+	printf("\nEnter how many pages : ");
+	scanf("%d",&size);
+	
+	printf("\nEnter Reference string : ");
+	for(i=0;i<size;i++)
+	scanf("%d",&p_request[i]);
+	  
+	printf("\nHow many frames:");  scanf("%d",&n);
+	//initialize frames
+	for (i=0; i<n; i++)
+	{ 
+		frames[i].pno=-1;
+		frames[i].freq=0;
+	}
+
+	printf("\nPageNo     Page Frames              Page Fault");
+	printf("\n---------------------------------------------------");
+	for(i=0;i<size;i++)
+	{
+		j=page_found(p_request[i]);
+		if(j==-1)  //page fault occurs
+		{
+			j=get_free_frame();
+			if (j==-1) //no free frame - do page replacement
+			j=get_mfu_frame();
+			page_fault++;
+			frames[j].pno=p_request[i];
+			frames[j].freq=1;
+			printf("\n%d\t ",p_request[i]);
+			for (fno=0; fno<n; fno++)
+			printf("%d\t",frames[fno].pno);
+			printf(" : YES");
+		}
+		else //page found in frame j
+		{
+			printf("\n%d\t ",p_request[i]);
+			frames[j].freq++;
+			for (fno=0; fno<n; fno++)
+			printf("%d\t",frames[fno].pno);
+			printf(" : NO");
+		}
+	}
+	printf("\n-------------------------------------------------------");
+	printf("\n Number of Page_Falts=%d",page_fault);
+
+}
+
+
+
+
+
+
+
+
+
+#include<stdio.h>
+#include<unistd.h>
+#include<string.h>
+#include<stdlib.h>
+
+void search(char *tok2,char *tok3,char *tok4)//tok2:command tok3:pattern tok4:filename
+{
+	FILE *fp;
+	int lineno=0,count=0;
+	char str[50];
+	fp=fopen(tok4,"r");
+	if(fp==NULL)
+	{
+		printf("File does not exist");
+					exit(0);
+	}
+	else
+	{
+		
+		if(strcmp(tok2,"f")==0)//First occurance of pattern
+		{
+			while(!feof(fp))
+			{
+				fgets(str,50,fp);
+				lineno++;
+				if(strstr(str,tok3))
+				{
+				printf("First occurance of '%s' is on line%d\n",tok3,lineno);
+				break;
+				}
+			}
+		}
+
+			
+		if(strcmp(tok2,"c")==0)//Total number of occurances of pattern
+		{
+			while(!feof(fp))
+			{
+				fgets(str,50,fp);
+				if(strstr(str,tok3))
+				{
+					count++;
+				}
+			}
+			printf("Total number occurance of pattern(%s) is %d\n",tok3,count);
+		}
+
+		if(strcmp(tok2,"a")==0)//Total occurances of pattern
+		{
+			while(!feof(fp))
+			{
+				fgets(str,50,fp);
+				lineno++;
+				if(strstr(str,tok3))
+				{
+					printf("%d %s\n",lineno,str);
+				}	
+			}
+			
+		}
+		
+	}
+}
+
+void main(int argc,char *argv[])
+{
+	char cmd[20],tok1[20],tok2[20],tok3[20],tok4[20];
+	while(1)
+	{
+		printf("\nMyShell$:");
+		gets(cmd);
+		
+			if(strcmp(tok1,"exit")==0)
+			exit(0);
+			
+		int ch=sscanf(cmd,"%s%s%s%s",tok1,tok2,tok3,tok4);
+		if(ch==4)
+		{
+	
+			if(strcmp(tok1,"search")==0)
+			{
+			search(tok2,tok3,tok4);
+			continue;
+			}
+		}
+		/*if(fork()==0)
+		{
+			switch(ch)
+			{
+				case 1:
+					execlp(tok1,NULL);
+					break;
+				case 2:
+					execlp(tok1,tok2,NULL);
+					break;
+				case 3:
+					execlp(tok1,tok2,tok3,NULL);
+					break;
+				case 4:
+					execlp(tok1,tok2,tok3,tok4,NULL);
+					break;
+			}
+		}*/
+	}
+}

@@ -1,0 +1,201 @@
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+#include<stdlib.h>
+
+void bass(int arr[],int n)
+{
+    int i,j,temp;
+        for(i=0;i<n-1;i++)
+        {
+            for(j=0;j<n-i-1;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+                }
+            }
+        }
+printf("\nAscending order\n");
+for(i=0;i<n;i++)
+printf("\t%d",arr[i]);
+printf("\n\n\n");
+}
+
+void bdsc(int arr[],int n)
+{
+int i,j,temp;
+for(i=0;i<n;i++)
+{
+    for(j=0;j<n-1;j++)
+    {
+        if(arr[j]<arr[j+1])
+        {
+            temp=arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        }
+    }
+}
+printf("\nDescending Sorting\n\n");
+for(i=0;i<n;i++)
+printf("\t%d",arr[i]);
+printf("\n\n\n");
+
+}
+
+
+void forkeg()
+{
+int arr[25],n,i,status;
+printf("\nEnter the no. of values of array");
+scanf("%d",&n);
+printf("Enter the array elements:");
+for(i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+//bass(arr,n);
+int pid=fork();
+if(pid==0)
+{
+sleep(10);
+printf("\n child process \n");
+printf("child process id=%d\n",getpid());
+//bdsc(arr,n);
+bass(arr,n);
+printf("\nElements Sorted using incertion sort");
+printf("\n");
+for(i=0;i<n;i++)
+printf("%d",arr[i]);
+printf("\b");
+printf("\nParent process id=%d\n",getppid());
+system("ps -x");
+}
+else
+{
+printf("\nparentprocess \n");
+printf("\nparentprocess id=%d\n",getppid());
+//bas(arr,n);
+bdsc(arr,n);
+printf("Elements sorted using bubble sort");
+printf("\n");
+for(i=0;i<n;i++)
+printf("%d",arr[i]);
+printf("\n\n\n");
+}
+}
+
+int main()
+{
+forkeg();
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Opereating System Program on Count
+				c \w\l
+$shell = count operation filename;
+
+filename
+w->Word .
+c->charater
+l->line.
+*/
+
+#include<stdio.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<string.h>
+
+void count(char *tok2,char *tok3){
+	int c=0,l=0,w=0;
+	FILE *fp;
+	fp = fopen(tok3,"r");
+	
+	if(fp == NULL){
+		printf("File does not exist.");
+	}else{
+		printf("File exist");
+	}
+	
+	while(!feof(fp)){
+		char ch;
+		ch = fgetc(fp);
+		
+		c++;
+		// sanket nalage
+		if(ch == ' ' || ch == '\t'){
+			w++;
+		}
+		//sanket
+		//tejas
+		if(ch == '\n'){
+			w++;
+			l++;
+		}
+	}
+	
+	if(strstr(tok2,"c") != NULL){
+		printf("No. of character:%d",c);
+	}
+	
+	if(strstr(tok2,"w") != NULL){
+		printf("No. of Word:%d",w);
+	}
+	
+	if(strstr(tok2,"l") != NULL){
+		printf("No. of line:%d",l);
+	}
+}
+
+int main(int argc,char *argv){
+	char tok1[10],tok2[10],tok3[10],tok4[10],cmd[30];
+	int choice;
+	
+	while(1){
+		printf("\n$MYShell$:");
+		gets(cmd);
+		
+		if(strcmp(cmd,"exit") == 0){
+			exit(0);
+		}
+		
+		int choice = sscanf(cmd,"%s%s%s%s",&tok1,&tok2,&tok3,&tok4);
+		if(choice == 3){
+			if(strcmp(tok1,"count") == 0){
+				count(tok2,tok3);
+				continue;
+			}
+		/*	if(fork() == 0){
+				switch(choice){
+					case 1:
+						excelp(tok1,NULL);
+						break;
+						
+					case 2:
+						excelp(tok1,tok2,NULL);
+						break;
+						
+					case 3:
+						excelp(tok1,tok2,tok3,NULL);
+						break;
+						
+					case 4:
+						excelp(tok1,tok2,tok3,tok4,NULL);
+						break;
+				}
+				exit(0);
+			}*/
+		}
+	}
+}
