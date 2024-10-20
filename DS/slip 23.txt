@@ -1,0 +1,26 @@
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Binarizer
+# Load the wine quality dataset
+df = pd.read_csv('winequality-red.csv') # Replace with your actual file path
+# Display the first few rows of the original dataset
+print("Original Dataset:")
+print(df.head())
+# a. Rescaling: Normalize the dataset using MinMaxScaler
+minmax_scaler = MinMaxScaler()
+normalized_data = minmax_scaler.fit_transform(df)
+normalized_df = pd.DataFrame(normalized_data, columns=df.columns)
+print("\nNormalized Dataset using MinMaxScaler:")
+print(normalized_df.head())
+# b. Standardizing Data (transform into a standard Gaussian distribution)
+standard_scaler = StandardScaler()
+standardized_data = standard_scaler.fit_transform(df)
+standardized_df = pd.DataFrame(standardized_data, columns=df.columns)
+print("\nStandardized Dataset:")
+print(standardized_df.head())
+# c. Binarizing Data using Binarizer class
+threshold = 0.5 # Define a threshold for binarization
+binarizer = Binarizer(threshold=threshold)
+binarized_data = binarizer.fit_transform(df)
+binarized_df = pd.DataFrame(binarized_data, columns=df.columns)
+print("\nBinarized Dataset (using threshold = {}):".format(threshold))
+print(binarized_df.head())

@@ -1,0 +1,35 @@
+
+Q2 A
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+data=np.random.randint(1,100,50)
+data
+
+plt.plot(data)
+
+plt.scatter(data,data)
+
+plt.hist(data,bins = [0,20,40,60,80,100])
+plt.show()
+
+plt.boxplot(data)
+
+
+
+
+Q.2 B
+
+import pandas as pd
+df = pd.read_csv('User_Data.csv') 
+print(f"Shape of the dataset: {df.shape}")
+num_rows, num_columns = df.shape
+print(f"Number of Rows: {num_rows}")
+print(f"Number of Columns: {num_columns}")
+print("\nData Types of Each Feature:"
+print(df.dtypes)
+print("\nFeature Names:")
+print(df.columns.tolist())
+print("\nDescription of the Data:")
+print(df.describe(include='all'))

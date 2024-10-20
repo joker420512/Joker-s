@@ -1,0 +1,27 @@
+
+Q.2 A)
+import pandas as pd
+import matplotlib.pyplot as plt
+df=pd.read_csv("D://Datasets/Iris.csv")
+df
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+df1=df.drop(['Id'],axis=1)
+df1
+
+plt.figure(figsize = (10, 7))
+df1.boxplot()
+
+
+
+
+
+
+Q.2 B) 
+
+import pandas as pd
+df = pd.read_csv('heights_weights.csv')
+df
+
+df2.describe()

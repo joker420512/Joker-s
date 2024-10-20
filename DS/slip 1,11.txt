@@ -1,0 +1,23 @@
+
+Q.2 A)
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('iris.csv')
+df
+
+data=df['Species'].value_counts()
+data
+
+fig = plt.figure(figsize =(15, 7))
+species=['versicolor','setosa','virginica']
+plt.pie(data, labels =species,autopct='%1.1f%%' )
+plt.show()
+
+B) 
+import pandas as pd
+df = pd.read_csv('winequality-red.csv')
+
+df.describe()
+
+ff.shape
+

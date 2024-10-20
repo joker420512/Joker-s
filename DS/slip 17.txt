@@ -1,0 +1,40 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+df = pd.read_csv('iris.csv') 
+sns.set(style="whitegrid")
+plt.figure(figsize=(12, 8))
+plt.subplot(2, 2, 1)
+sns.scatterplot(data=df, x='petal_length', y='petal_width', hue='species', style='species',
+palette='deep')
+plt.title('Petal Length vs Petal Width')
+plt.subplot(2, 2, 2)
+sns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', style='species',
+palette='deep')
+plt.title('Sepal Length vs Sepal Width')
+plt.subplot(2, 2, 3)
+sns.scatterplot(data=df, x='petal_length', y='sepal_length', hue='species', style='species',
+palette='deep')
+plt.title('Petal Length vs Sepal Length')
+plt.subplot(2, 2, 4)
+sns.scatterplot(data=df, x='petal_width', y='sepal_width', hue='species', style='species',
+palette='deep')
+plt.title('Petal Width vs Sepal Width')
+plt.tight_layout()
+plt.show()
+
+
+Q.2 B)
+data = {
+'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve',
+'Frank', 'Grace', 'Hannah', 'Ivy', 'Jack'],
+'Age': [25, 30, 22, 35, 29, 28, 32, 24, 27, 31],
+'Salary': [50000, 60000, 55000, 70000, 65000,
+58000, 62000, 72000, 48000, 52000],
+'Department': ['HR', 'IT', 'Finance', 'Marketing', 'HR',
+'IT', 'Finance', 'HR', 'Marketing', 'IT']
+}
+df = pd.DataFrame(data)
+# Display the DataFrame
+print("DataFrame:")
+print(df)

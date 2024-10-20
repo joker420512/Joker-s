@@ -1,0 +1,53 @@
+Q.2 A) 
+
+import pandas as pd
+df = pd.read_csv('Data.csv')
+df
+
+df.isnull().sum()
+
+smean=round(df['Salary'].mean(),2)
+print("mean of Salary=",end="")
+print(smean)
+print("Data after filling null value of Salary column")
+df['Salary']=df['Salary'].fillna(smean)
+df
+
+agemean=round(df['Age'].mean(),2)
+print("mean of column Age=",end="")
+print(agemean)
+print("Data after filling null value of Age column")
+df['Age']=df['Age'].fillna(agemean)
+df
+
+Q.2 B) 
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('Data.csv')
+plt.plot(df['Age'],df['Salary'])
+plt.title('Name vs Salary', fontsize=16)
+plt.xlabel('Name', fontsize=12)
+plt.ylabel('Salary', fontsize=12)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+
+Q.2 C) 
+import pandas as pd
+df1 = pd.read_csv('heights_weights.csv') 
+
+df1.head(10)
+
+df1.tail(10)
+
+df1.sample(20)
+
+df1.shape
+
+agemean=df['age'].mean()
+df['age']=df.['age'].fillna(agemean)
