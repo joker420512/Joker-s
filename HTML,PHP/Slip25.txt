@@ -1,0 +1,49 @@
+Slip-25
+//HTML Program 
+<html> <head> <title> Menu driven program to perform various file operations </title> 
+</head>  
+<form action=file2.php method=post> 
+Enter File Name:- 
+<input type="text" name=file> 
+<br> <br> 
+<input type="radio" name="op" value="a"> Display type of file. 
+<br> <br> 
+<input type="radio" name="op" value="b"> Display last modification time of file 
+<br> <br> 
+<input type="radio" name="op" value="c"> Display the size of file 
+<br> <br> 
+<input type="radio" name="op" value="d"> Delete the file 
+<br> <br> 
+<input type="submit" name="Submit" value="File Oprations"> 
+<input type="reset" name="Reset"> 
+</form> 
+</body> 
+</html>
+
+
+// PHP program 
+<?php 
+$op=$_POST['op']; 
+$file=$_POST['file']; 
+switch($op) 
+{ 
+case 'a': 
+ $filetype=filetype($file); 
+ echo "Type of File is:- $filetype"; 
+ break; 
+case 'b': 
+ $lmodtime=filemtime($file); 
+ echo "last modification time of file is:- $lmodtime"; 
+ break; 
+case 'c': 
+ $fsize=filesize($file); 
+ echo "Size of file is:- $fsize Bytes"; 
+ break; 
+case 'd': 
+ unlink($file); 
+ break; 
+case 'default': 
+ echo "Enter correct option"; 
+ break; 
+} 
+?>

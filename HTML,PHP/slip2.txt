@@ -1,0 +1,33 @@
+
+<html>
+
+<head>
+
+</head>
+
+<body style="background-color: pink">
+
+<div>
+
+<h1 style="color:#0000ff> Baramati </h1>
+
+<br><br>
+
+<font face="cursive serif" color="#0000FF" size="2">TC College </font>
+
+<font face="cursive sen" color="#FF0000" size="3"> VP College </font>
+
+<font face="cursive, serif" color=#00FFOD" sue4" Shanda nagar College </font> 
+<br>
+
+<img src="tc.jpg" width="100" height ="100" alt =T C College">
+
+<img src="vp.jpg" width="100" height="100" alt="VP College">
+
+<img src="shardabai. jpg" width="100" height="100" alt="Sharda nager College">
+
+<div>
+
+</body>
+
+<html>

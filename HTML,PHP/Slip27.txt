@@ -1,0 +1,32 @@
+Slip-27
+//HTML program
+<html> <head> <title> copy content of first file into second file </title> </head>  
+<form action=file3.php method=post> 
+Enter First File Name:- 
+<input type="text" name=ffile> 
+<br> <br> 
+Enter second File Name:- 
+<input type="text" name=sfile> 
+<br> <br> 
+<input type="submit" name="Submit" value="Copy"> 
+<input type="reset" name="Reset"> 
+</form> 
+</body> 
+</html>
+
+
+// PHP program 
+<?php 
+$sfile=$_POST['ffile']; 
+$dfile=$_POST['sfile']; 
+$fp1=fopen($sfile,"r"); 
+$fp2=fopen($dfile,"w"); 
+// Method 1 
+$d=fread($fp1,filesize($sfile)); 
+fwrite($fp2,$d); 
+// Method 2 
+fwrite($fp2,fread($fp1,filesize($sfile))); 
+echo " $sfile file is copied into $dfile file"; 
+fclose($fp1); 
+fclose($fp2); 
+?>

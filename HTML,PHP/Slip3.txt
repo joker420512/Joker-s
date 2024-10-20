@@ -1,0 +1,34 @@
+
+<html>
+
+<style>
+
+h1
+{
+
+background-color:green,
+
+color:red;
+
+font-family comic sans ms: text-align: center;
+}
+p
+{
+color:blue;
+}
+</style>
+
+</head>
+
+<body>
+<div>
+
+<h1> Dynamic Dairy </h1>
+<br><br>
+
+<p>The visionary Chairman of Dynamix Daines Ltd. Mr. K. M. Goenka founded a company on core principles of producing quality milk products from best quality cow milk in line with world class technology and infrastructure. In 2004, USA based Internationally renowned dairy giant Schreiber Foods acquired 51% stake in Dynamix Daines Ltd to form a leading dairy product company Schreiber Dynamix Dairies Ltd.
+</p>
+</div>
+
+</body>
+</ html>

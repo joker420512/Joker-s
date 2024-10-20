@@ -1,0 +1,40 @@
+Slip-28 
+student.dat 
+1 gautam 45 42 44 43 40 38 
+2 gajanan 42 42 48 43 45 37 
+3 amol 45 42 43 46 41 31 
+4 gauri 43 44 41 43 47 35 
+5 kiran 41 42 42 45 43 36 
+<?php 
+$fp=fopen("student.dat","r"); 
+echo "<table border=2 color=red>"; 
+echo "<tr> <th> Roll No </th> 
+ <th> Name </th> 
+ <th> OS </th> 
+ <th> WT </th> 
+ <th> DS </th> 
+ <th> Python </th> 
+ <th> JAVA </th> 
+ <th> CN </th> 
+ <th> Total </th> 
+ <th> Percentage</th> 
+ </tr>"; 
+while(($r=fscanf($fp,"%d %s %d %d %d %d %d %d"))!=NULL) 
+{ 
+$total= $r[2]+$r[3]+$r[4]+$r[5]+$r[6]+$r[7]; 
+$per=round(($tot/6.0),2); 
+echo "<tr> <td> $r[0] </td> 
+ <td> $r[1] </td> 
+ <td> $r[2] </td> 
+ <td> $r[3] </td> 
+ <td> $r[4] </td> 
+ <td> $r[5] </td> 
+ <td> $r[6] </td> 
+ <td> $r[7] </td> 
+ <td> $total </td> 
+ <td> $per </td> 
+ </tr>"; 
+} 
+echo "</table>"; 
+fclose($fp); 
+?>

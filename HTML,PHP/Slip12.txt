@@ -1,0 +1,86 @@
+Slip-12
+//Calculate.html 
+<!DOCTYPE html> 
+<html> 
+<head> 
+ <title> Arithmetic Calculator</title> 
+</head> 
+<body> 
+ <h2>Arithmetic Calculator</h2> 
+ <form action="calculate.php" method="post"> 
+ Enter first number: <input type="number" name="num1" required><br><br> 
+ Enter second number: <input type="number" name="num2" required><br><br> 
+ Select operation: 
+ <input type="radio" name="operation" value="add" checked> Addition 
+ <input type="radio" name="operation" value="subtract"> Subtraction 
+ <input type="radio" name="operation" value="multiply"> Multiplication 
+ <input type="radio" name="operation" value="divide"> Division<br><br> 
+ <input type="submit" value="Calculate"> 
+ </form> 
+</body> 
+</html>
+
+calculate.php 
+<html> 
+<head> 
+ <title> Arithmetic Calculator – Result </title> 
+</head> 
+<body> 
+ <h2> Arithmetic Calculator – Result </h2> 
+ <?php 
+include ‘op.php’; 
+require ‘op.php’; 
+ // Function to perform arithmetic operations 
+ switch ($operation)  
+{ 
+ case "add": 
+ $add=sum($num1,$num2); 
+ echo “$add”; 
+ case "subtract": 
+ $sub=sub($num1,$num2); 
+ echo “$sub”; 
+ case "multiply": 
+ $mul=mul($num1,$num2); 
+ echo “$mul”; 
+ case "divide": 
+ $div=div($num1,$num2); 
+ echo “$div”;
+default: 
+ echo “Invalid operation selected."; 
+ } 
+ } 
+ // Check if form was submitted 
+ if (isset($_POST['num1']) && isset($_POST['num2']) && isset($_POST['operation'])) { 
+ $num1 = $_POST['num1']; 
+ $num2 = $_POST['num2']; 
+ $operation = $_POST['operation']; 
+ }  
+else   
+{ 
+ echo "Form not submitted."; 
+} 
+ ?> 
+</body> 
+</html>
+<? Php
+function sum($num1,$num2) 
+{ 
+$add=$num1+$num2; 
+return $add;  
+} 
+function sub($num1,$num2) 
+{ 
+$sub=$num1-$num2; 
+return $sub;  
+} 
+function mul($num1,$num2) 
+{ 
+$mul=$num1*$num2; 
+return $mul;  
+} 
+function div($num1,$num2) 
+{ 
+$div=$num1/$num2; 
+return $div;  
+}
+? >

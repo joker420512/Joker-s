@@ -1,0 +1,64 @@
+Slip-18
+// HTML Program 
+<html> 
+<head>  
+<title> operations on an associative array </title>  
+</head> 
+<body> 
+<form action="array2.php" method="POST"> 
+<input type="radio" name="op" value="a"> Reverse the order of each element’s key-value pair. 
+<br> <br> 
+<input type="radio" name="op" value="b"> Traverse the element in an array in random order. 
+<br> <br> 
+<input type="radio" name="op" value="c"> Convert the array elements into individual variables. 
+<br> <br> 
+<input type="radio" name="op" value="d"> Display the elements of an array along with key. 
+<br> <br> 
+<input type="submit" name="Submit"> 
+<input type="reset" name="Reset"> 
+</form> 
+</body> 
+</html>
+
+// PHP Program 
+<?php 
+$op=$_POST['op']; 
+$data=array("Sagar"=>"31","Vicky"=>"41","Leena"=>"39","Ramesh"=>"40"); 
+switch($op) 
+{ 
+case 'a': 
+ echo "Original Array data :<br>"; 
+ print_r($data); 
+ $result=array_flip($data); 
+ echo "<br> Flipped Array data :<br>" ; 
+ print_r($result); 
+ break; 
+case 'b': 
+ echo "Original Array data :<br>"; 
+ print_r($data); 
+ $result=$data;  
+ shuffle($result); 
+ echo "<br> Shuffled Array data :<br>" ; 
+ print_r($result); 
+ break; 
+case 'c': 
+ echo "Original Array data :<br>"; 
+ print_r($data); 
+ $result=$data;  
+ extract($result); 
+ echo "<br> Extracting array elements in to individual variables :<br>" ; 
+  
+ echo "<br> \$Sagar = $Sagar; \$Vicky = $Vicky; \$Leena = $Leena \$Ramesh=  
+$Ramesh"; 
+ echo "<br> $Sagar"; 
+ break; 
+case 'd': 
+ echo "Original Array data :<br>"; 
+ foreach($data as $k => $v) 
+ { 
+ echo "<br>Key is =$k value is =$v"; 
+ } 
+  
+ break; 
+} 
+?

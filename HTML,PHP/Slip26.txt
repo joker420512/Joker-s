@@ -1,0 +1,55 @@
+Slip-26
+<html>
+
+<head>
+
+<title> Doctor visiting to the Hospital </title>
+
+</head>
+
+<body>
+
+<form action="dbass3.php" method="POST"> 
+
+Enter Hospital Name:- <input type=text name hname> <br>
+
+<input type=submit value="Hospital Name"> <input type reset value="Reset">
+</form>
+</body>
+</html>
+
+//PHP Program
+<?php
+$db=pg connect("host=172. 16.6.1 dhname=php21200 useг=php21200  password="");
+
+$hname =$_POST['hname'];
+
+if($db) 
+echo "connect <br>";
+else
+else echo "error",
+
+$q='select doctor 1.docno, dname from doctor1, hospital1 where hospital1.hospno=doctor1.hospno and hname='$hname';";
+
+$r=pg_exec($db,$q);
+
+echo "hi align=center> Docter visiting to the Hospital </h1>"; 
+
+echo "<table border 2 bgcolor red align=center>";
+
+echo "<tr> <th> Doctor No </th> <th> Doc Name </th> <th> City </th></tr>";
+
+while($row=pg_fetch_array($))
+{
+echo "<tr> ";
+echo "<td> $row[0] </td>";
+
+echo "<td> $row[1]</td>";
+
+echo "<td> Srow[2] </td>";
+
+echo "</tr>";
+}
+echo "</table>";
+pg_close($db);
+?>

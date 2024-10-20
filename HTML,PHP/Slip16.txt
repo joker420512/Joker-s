@@ -1,0 +1,109 @@
+Slip -16
+//HTML Program
+
+<html>
+
+<head>
+
+<style>
+
+table
+
+{
+ border-collapse: collapse;
+ }
+
+table, th, td
+{
+border: 1px solid blue;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form method="post" action="string4stud
+
+<center>
+
+<h1>Enter details of 5 Students </h1>
+
+<h3>Enter Serial Number <input type="text" name="smum" placeholder="ex 11,12,13,14,15"/></h3>
+
+<h3>Enter Subject Name <input type="text" name="sname" /></h3>
+
+<h3>Enter Marks <input type="text" name="smarks" /></h3>
+
+<input type="submit" value="Submit"/>
+
+<input type="reset" name="Reset">
+
+</center>
+
+</form>
+
+</body>
+
+</html>
+
+PHP Program
+
+<?php
+
+$sno5_POST['snum'];
+
+$sname =$_POST['sname'];
+
+$marks =$_POST['smarks'];
+
+$sno =explode(','$sno);
+
+$subname =explode(',',$sname);
+
+$smarks= explode(;;$marks);
+
+Stotal= ((Ssmarks[0]+Ssmarks[1]+Ssmarks[2]+$smarks[3]+$smarks[4]));
+$per=$total/5:
+
+if($per>=70) 
+$grade="A";
+
+elseif ($per>=60)
+$grade ="B";
+elseif ($per>=50)
+$grade ="C";
+elseif ($per>=40)
+ $grade ="D";
+else
+$grade ="F";
+
+echo "<table align=center border=1>";
+
+echo "<tr>
+
+<th><b> Serial Number </b> </th>
+
+<th> <b> Subject Name </b> </th>
+
+<th><b> Marks </b> </th>
+
+for($i=0;$i<5 Si++)
+
+echo "<tr>
+
+<td>".$sno[$i]."</td>
+
+<td>" Ssubname[$i]."</td>
+
+<td>" Ssmarks[$i]."</td> </tr>";
+
+echo "<tr> <th colspan=2> Total Marks </th><td>" Stotal."</ul> </tr>";
+
+echo "<tr> <th colspan=2> Percentage:-</th> <td>" Sper. "</td> </tr>";
+
+echo "<tr> <th colspan=2> Grade:-</th> <td>" Sgrade. "</td> </tr>";
+
+echo "</table>";
+? >

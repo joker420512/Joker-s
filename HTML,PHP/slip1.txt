@@ -1,0 +1,82 @@
+
+<IDOCTYPE HTML> 
+
+<html> <head>
+
+<style>
+
+h1
+
+font-size:20px;
+
+color:red;
+}
+
+body
+
+{ 
+background-color:yellow;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+
+<form>
+
+<h1> Project Management </h1>
+
+<br> <br>
+
+Project Name &nbsp; &nbsp;&nbsp;&nbsp;<input type="text">
+ <br> <br>
+
+Assigned to
+
+<select name="Name_of_person" size="1">
+
+<option> Gautam </option>
+
+<option> Amol </option>
+
+<option> Mr Gajanan </option>
+
+<option> Mr mahesh </option>
+</select>
+
+<br> <br>
+
+Start Date &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <input type="date">
+ <br> <br> 
+
+End Date &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<input
+
+type="date">
+ <br> <br>
+
+Priority
+
+<input type="radio"> High
+
+<input type="radio"> Average
+
+<input type="radio"> Low
+
+<br><br>
+
+Description <input type="textarea" rows="5">
+
+<br><br>
+
+<input type="submit" value="submit">
+
+<input type="reset" name="clear" value="clear">
+
+</form>
+
+</div>
+
+</body> </html>

@@ -1,0 +1,61 @@
+Slip -30
+<html> <head> <title> Student secured 1st rank </title> </head>
+
+<body>
+
+<form action "dbass2 php" method="POST>
+
+Enter Competition Name:- <input type=text name cname><br>
+
+<input type submit value= "submit">
+
+<input type reset value-"Reset">
+
+</form>
+
+</body>
+
+</html>
+
+//dbass2.php
+
+<?php
+
+$db-pg_connect("host-172.16.6.1 dbname=php21200 user=php21200 password=" ");
+
+$cname=$_ POST['crame'];
+
+if($db)
+
+echo "connect <br>";
+
+else
+
+echo "error";
+
+$q="select student.sid, name,class from student, competition, studcomp where student. sid=studcomp. sid and competition.cno-studcomp.cno  and rank=1 and cname= '$cname''';
+
+$r=pg_ exec($db,$q);
+
+echo "<h1align=center> Student who has secured 1st rank </h1>";
+
+echo "<table border =2 bgcolor=red align=center>";
+
+echo "<tr> <th>sno </th><th> sname </th> <th> class </th></tr>";
+
+while ($row=pg _fetch _ array($r))
+{
+echo "<tr>";
+
+echo "<td> $row[0] </td>";
+
+echo "<td> $row[1]</td>
+
+echo "<td> $row[2]</td>";
+
+echo "</tr>";
+}
+
+echo "</table>";
+pg_close($db);
+?>

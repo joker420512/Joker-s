@@ -1,0 +1,34 @@
+Slip-8
+//HTML Program  
+<html>  
+<head> <title> string operations </title> </head>  
+<body>  
+<form action="string1.php" method="POST">  
+Enter large string:- <input type="text" name=str1> <br> <br> <br>  
+Enter small string:- <input type="text" name=str2> <br> <br> <br>  
+<input type="submit" name="Submit" value="string operations">  
+<input type="reset" name="Reset">  
+</form>  
+</body>  
+</html>
+
+
+// PHP Program  
+<?php  
+$string1=$_POST['str1'];  
+$string2=$_POST['str2'];  
+echo "1. Find whether the small string appears at the start of the large string.<br> <br> ";  
+$pos=strpos($string1,$string2);  
+if ($pos===0)  
+echo "The small string appears at the start of the large string <br><br>";  
+else  
+echo "The small string not appears at the start of the large string <br><br>"; 
+echo "2. Find the position of the small string in the big string. <br><br>";  
+$pos=strpos($string1,$string2);  
+echo "The position of the small string in the big string is at position $pos <br> <br>";  
+echo "3. Compare both the string for first n characters, also the comparison should not be case  
+sensitive. <br> <br>";  
+$scmp=substr_compare($string1,$string2,0,5);  
+if($scmp==0)  
+echo "String is equal"; else echo "String is not equal";  
+?>

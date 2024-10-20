@@ -1,0 +1,44 @@
+Slip-22
+// HTML Program 
+<html>  
+<head> <title> queue related operations </title> </head> 
+<body> 
+<form action="queue.php" method="POST"> 
+<input type="radio" name="op" value="a"> Insert an element in queue 
+<br> <br> 
+<input type="radio" name="op" value="b"> Delete an element from queue 
+<br> <br> 
+<input type="radio" name="op" value="c"> Display the contents of queue 
+<br> <br> 
+<input type="submit" name="Submit"> 
+<input type="reset" name="Reset"> 
+</form> 
+</body> 
+</html>
+
+//PHP Program 
+<?php 
+$op=$_POST['op']; 
+$queue=array(1,2,3,4); 
+switch($op) 
+{ 
+case 'a': 
+ echo "Insert an element in queue :<br>"; 
+ array_shift($queue); 
+ var_dump($queue); 
+ break; 
+case 'b': 
+ echo "Delete an element from queue :<br>"; 
+ array_unshift($queue,100); 
+ var_dump($queue); 
+ break; 
+case 'c': 
+ echo "Display the contents of queue :<br>"; 
+ var_dump($queue); 
+ break; 
+case 'default': 
+  
+ echo "Enter Correct Choice :<br>"; 
+ break; 
+} 
+?>
